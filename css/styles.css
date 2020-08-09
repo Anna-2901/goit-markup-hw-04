@@ -107,13 +107,23 @@ p {
     display: flex;
 }
 
-
-
-.site-nav .link,
-.auth-nav .link {
-    display: block;
+.site-nav .link{
+    display: inline;
 
 	color: var(--title-text-color);
+	font-weight: 500;
+	font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+}
+
+
+.auth-nav .link {
+    display: inline;
+
+	color: var(--primary-text-color);
 	font-weight: 500;
 	font-size: 14px;
     line-height: 1.14;
@@ -150,6 +160,7 @@ p {
 .auth-icon{
     margin-right: 10px;
     fill: currentColor;
+    vertical-align: middle;
 }
 .auth-icon:hover{
     fill: var(--accent-color);
@@ -349,51 +360,53 @@ p {
 
 .section-team  {
     background-color: var(--fon-color);
+    width: auto;
 }
 
 .team-list {
     display: flex;
-  }
+    flex-wrap: wrap;
+}
 
 .social-list {
     display: flex;
     justify-content: center;
-    align-items: center;
+
 }
 
+.social-item:not(:last-child) {
+    margin-right: 10px;
+  }
+
 .social-icon{
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
 
     width: 44px;
     height: 44px;
-    margin-right: 10px;
-    border-radius: 50%;
 
-    fill: currentColor;
+    border-radius: 50%;
+}
+.icon{
+    fill:#AFB1B8;
 }
 
 .social-icon:hover,
-.social-icon:focus
-{
+.social-icon:focus{
+    background: var(--accent-color);
+}
+
+.social-icon:hover .icon,
+.social-icon:focus .icon{
     fill: var(--primary-white-color);
-    background-color: var(--accent-color);
 }
-
-.icon{
-fill: #AFB1B8;
-}
-
-.icon:hover,
-.icon:focus {
-    fill: #ffffff;
-}
-  
 .team-item{
-    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 
+    width: calc((100% - 30px * 3) / 4);
+    padding-bottom: 24px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
     0px 1px 1px rgba(0, 0, 0, 0.14), 
-    0px 1px 3px rgba(0, 0, 0, 0.12);
+    0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0px 0px 4px 4px;
     background-color: var(--primary-white-color);
 
@@ -405,12 +418,14 @@ fill: #AFB1B8;
     margin-right: 30px;
 }
 
-.img{
-    margin-bottom: 30px;
+img{
+    display:block;
+    max-width: 100%;
+    height: auto;
 }
 
 .team {
-    margin-top: 0px;
+    margin-top: 30px;
     margin-bottom: 10px;
     
     color: var(--title-text-color);
@@ -447,34 +462,31 @@ letter-spacing: 0.03em;
 
 .customers{
     display: flex;
+    justify-content: center;
 }
 
 .customers-item:not(:last-child){
     margin-right: 30px;
 }
- 
-.customers-item{
-    border: 1px solid #AFB1B8;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-
-.customers-item:hover{
-    border: 1px solid var(--accent-color);
-}
 
 .customers-logo{
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 168px;
-    height: 88px;
+    width: 170px;
+    height: 90px;
+    border: 1px solid #AFB1B8;
+    border-radius: 4px;
     
+    color: #AFB1B8;
+}
 
-    fill: #AFB1B8;
+.customers-icon{
+    fill: currentColor
 }
 .customers-logo:hover{
-    fill: var(--accent-color);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
 }
 
 
@@ -518,6 +530,8 @@ letter-spacing: 0.03em;
 
 .address-link {
     color: var(--footer-contacts-color);
+    margin-bottom: 0px;
+    margin-top: 9px;
 }
 
 .networks {
@@ -554,6 +568,10 @@ letter-spacing: 0.03em;
     display: flex;
 }
 
+.icon-footer{
+    fill: var(--primary-white-color)
+}
+
 .social-item-footer{
     display: flex;
     justify-content:center;
@@ -569,6 +587,7 @@ letter-spacing: 0.03em;
     background-color: var(--accent-color);
 }
 
+/*
 .button-sign{
     display: inline-flex;
     border-radius: 4px;
@@ -596,7 +615,7 @@ letter-spacing: 0.03em;
     background-size: contain;
     align-items: baseline;
 }
-
+*/
 
 /***** Портфолио *****/
 
@@ -618,6 +637,7 @@ letter-spacing: 0.03em;
     letter-spacing: 0.03em;
     min-width: 73px;
     border: 1px solid transparent;
+    cursor: pointer;
 }
     
 .filter-button:hover,
@@ -639,12 +659,13 @@ letter-spacing: 0.03em;
 }
 
 .projects-item{
-    width: calc((100% - 60px) / 3);
+    width: calc((100% - 62px) / 3);
     margin-right: 30px;
     margin-bottom: 30px;
 
     background: var(--primary-white-color);
     border: 1px solid #EEEEEE;
+    background-size: contain;
 }
 
 .projects-item:nth-child(3n){
